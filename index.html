@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colegio Montano - Grade 2 Grammar Unit 1 Interactive Whiteboard</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        montanoBlue: '#1269A8',
+                        montanoYellow: '#F7D615',
+                        montanoGreen: '#54887D',
+                        montanoLightBlue: '#88B5C7',
+                        montanoOlive: '#A6B046',
+                        montanoBg: '#F2F5E9'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #F2F5E9;
+        }
+    </style>
+</head>
+<body class="min-h-screen text-slate-800 p-3 sm:p-6 flex flex-col items-center">
+
+    <!-- Main Whiteboard Container -->
+    <div id="whiteboard-container" class="w-full max-w-6xl bg-white rounded-xl shadow-2xl border-4 border-[#F7D615] flex flex-col overflow-hidden relative transition-all duration-300">
+        
+        <!-- Top Bar / Header -->
+        <header class="bg-[#1269A8] text-white p-4 sm:p-6 flex flex-wrap items-center justify-between gap-4 border-b-4 border-[#F7D615]">
+            <div class="flex items-center gap-4">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyEop0yf6lZ7Jk9MILZxF1rBj4Oqs5esyhIQ&s" alt="Colegio Montano Logo" class="h-12 w-12 sm:h-16 sm:w-16 object-contain bg-white rounded-lg p-1 shadow-md">
+                <div>
+                    <h1 class="text-xl sm:text-3xl font-bold tracking-wide">Colegio Montano</h1>
+                    <p class="text-xs sm:text-sm text-[#F7D615] font-semibold">Interactive Digital Whiteboard • Grade 2 • Our World 2 Unit 1</p>
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-3">
+                <span class="hidden md:inline-block text-xs bg-[#54887D] px-3 py-1.5 rounded-full text-white font-medium">Teacher Mode Active</span>
+                <button onclick="toggleFullscreen()" class="bg-[#F7D615] text-[#1269A8] hover:bg-yellow-400 font-bold px-4 py-2 rounded-lg shadow-md transition transform active:scale-95 flex items-center gap-2 text-sm">
+                    <span>⛶</span> <span class="hidden sm:inline">Fullscreen</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="bg-[#54887D] px-2 sm:px-6 py-3 flex flex-wrap gap-2 justify-center sm:justify-start">
+            <button onclick="switchTab('theory')" class="tab-btn px-4 py-2 rounded-lg font-bold text-sm transition bg-white text-[#1269A8] shadow" data-tab="theory">1. Theory</button>
+            <button onclick="switchTab('examples')" class="tab-btn px-4 py-2 rounded-lg font-bold text-sm transition bg-[#88B5C7] text-white hover:bg-white hover:text-[#1269A8]" data-tab="examples">2. Solved Examples</button>
+            <button onclick="switchTab('exercises')" class="tab-btn px-4 py-2 rounded-lg font-bold text-sm transition bg-[#88B5C7] text-white hover:bg-white hover:text-[#1269A8]" data-tab="exercises">3. Practice Exercises</button>
+            <button onclick="switchTab('reflection')" class="tab-btn px-4 py-2 rounded-lg font-bold text-sm transition bg-[#88B5C7] text-white hover:bg-white hover:text-[#1269A8]" data-tab="reflection">4. Critical Reflection</button>
+            <button onclick="switchTab('evaluation')" class="tab-btn px-4 py-2 rounded-lg font-bold text-sm transition bg-[#88B5C7] text-white hover:bg-white hover:text-[#1269A8]" data-tab="evaluation">5. Formative Quiz</button>
+        </nav>
+
+        <!-- Content Area -->
+        <main class="p-4 sm:p-8 bg-[#F2F5E9] flex-grow overflow-y-auto">
+            
+            <!-- ================= TAB 1: THEORY ================= -->
+            <section id="tab-theory" class="tab-content space-y-6">
+                <div class="bg-white p-6 rounded-xl border-l-8 border-[#1269A8] shadow-md">
+                    <h2 class="text-2xl font-bold text-[#1269A8] mb-2">Grammar I: Present Progressive (First Person Plural - We're)</h2>
+                    <p class="text-slate-600 mb-4">We use the present progressive to talk about actions happening right now. For the first person plural ("we"), we use <strong>We're</strong> (which means <em>We are</em>) plus an action verb ending in <strong>-ing</strong>.</p>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse bg-[#88B5C7] text-white rounded-lg overflow-hidden shadow">
+                            <thead>
+                                <tr class="bg-[#1269A8] text-white">
+                                    <th class="p-3 border border-[#88B5C7]">Question</th>
+                                    <th class="p-3 border border-[#88B5C7]" colspan="3">Answer</th>
+                                    <th class="p-3 border border-[#88B5C7]">Notes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="bg-white text-slate-800">
+                                    <td class="p-3 border font-semibold">What are you doing?</td>
+                                    <td class="p-3 border bg-[#88B5C7] text-white font-bold">We're</td>
+                                    <td class="p-3 border">reading. / cutting. / erasing.</td>
+                                    <td class="p-3 border text-sm text-slate-600">yellow paper. / the board.</td>
+                                    <td class="p-3 border font-mono text-sm bg-yellow-50">we're = we are</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl border-l-8 border-[#54887D] shadow-md">
+                    <h2 class="text-2xl font-bold text-[#54887D] mb-2">Grammar II: Questions with "Are there...?" & Short Answers</h2>
+                    <p class="text-slate-600 mb-4">We use <strong>Are there any...?</strong> to ask about plural items in a classroom or place. We answer with short affirmative or negative forms.</p>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse bg-[#88B5C7] text-white rounded-lg overflow-hidden shadow">
+                            <thead>
+                                <tr class="bg-[#54887D] text-white">
+                                    <th class="p-3 border border-[#88B5C7]">Question</th>
+                                    <th class="p-3 border border-[#88B5C7]" colspan="2">Answer</th>
+                                    <th class="p-3 border border-[#88B5C7]">Notes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="bg-white text-slate-800">
+                                    <td class="p-3 border font-semibold">Are there any crayons / books?</td>
+                                    <td class="p-3 border">Yes, there are.<br>No, there aren't.</td>
+                                    <td class="p-3 border bg-yellow-50 font-mono text-sm">there are / there aren't</td>
+                                    <td class="p-3 border text-sm text-slate-600">aren't = are not</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= TAB 2: SOLVED EXAMPLES ================= -->
+            <section id="tab-examples" class="tab-content hidden space-y-6">
+                <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-[#1269A8]">
+                    <h2 class="text-2xl font-bold text-[#1269A8] mb-4">Solved Examples (Levels: Basic, Intermediate, Advanced)</h2>
+                    <p class="text-slate-600 mb-6">Review these fully solved examples based on Our World 2 Unit 1 guidelines.</p>
+                    
+                    <div class="space-y-4">
+                        <!-- Basic Example 1 -->
+                        <div class="p-4 bg-[#F2F5E9] rounded-lg border border-[#88B5C7]">
+                            <span class="inline-block bg-[#A6B046] text-white text-xs font-bold px-2.5 py-1 rounded mb-2">BASIC - Example 1</span>
+                            <p class="font-semibold text-slate-800">Question: Look at the two students with scissors. What are they doing? Write the sentence.</p>
+                            <p class="text-[#1269A8] font-bold mt-2">Solution: We're cutting yellow paper.</p>
+                            <p class="text-xs text-slate-500 mt-1">Explanation: We use "We're" + verb ending in "-ing" (cutting) + object.</p>
+                        </div>
+
+                        <!-- Basic Example 2 -->
+                        <div class="p-4 bg-[#F2F5E9] rounded-lg border border-[#88B5C7]">
+                            <span class="inline-block bg-[#A6B046] text-white text-xs font-bold px-2.5 py-1 rounded mb-2">BASIC - Example 2</span>
+                            <p class="font-semibold text-slate-800">Question: Look at the classroom shelf. Are there any crayons?</p>
+                            <p class="text-[#1269A8] font-bold mt-2">Solution: Yes, there are.</p>
+                            <p class="text-xs text-slate-500 mt-1">Explanation: The shelf has a box labeled DRAWING with crayons, so we answer affirmatively.</p>
+                        </div>
+
+                        <!-- Basic Example 3 -->
+                        <div class="p-4 bg-[#F2F5E9] rounded-lg border border-[#88B5C7]">
+                            <span class="inline-block bg-[#A6B046] text-white text-xs font-bold px-2.5 py-1 rounded mb-2">BASIC - Example 3</span>
+                            <p class="font-semibold text-slate-800">Question: Complete with the correct action: "We're ________ the board." (erasing / reading)</p>
+                            <p class="text-[#1269A8] font-bold mt-2">Solution: We're erasing the board.</p>
+                            <p class="text-xs text-slate-500 mt-1">Explanation: We clean the board by erasing it.</p>
+                        </div>
+
+                        <!-- Basic Example 4 -->
+                        <div class="p-4 bg-[#F2F5E9] rounded-lg border border-[#88B5C7]">
+                            <span class="inline-block bg-[#A6B046] text-white text-xs font-bold px-2.5 py-1 rounded mb-2">BASIC - Example 4</span>
+                            <p class="font-semibold text-slate-800">Question: Look at the shelf section "WRITING". Are there any notebooks?</p>
+                            <p class="text-[#1269A8] font-bold mt-2">Solution: Yes, there are.</p>
+                            <p class="text-xs text-slate-500 mt-1">Explanation: Notebooks are clearly visible on the top shelf.</p>
+                        </div>
+
+                        <!-- Basic Example 5 -->
+                        <div class="p-4 bg-[#F2F5E9] rounded-lg border border-[#88B5C7]">
+                            <span class="inline-block bg-[#A6B046] text-white text-xs font-bold px-2.5 py-1 rounded mb-2">BASIC - Example 5</span>
+                            <p class="font-semibold text-slate-800">Question: Form the short negative answer for: Are there any paintbrushes? (assuming none are present)</p>
+                            <p class="text-[#1269A8] font-bold mt-2">Solution: No, there aren't.</p>
+                            <p class="text-xs text-slate-500 mt-1">Explanation: "aren't" is the contraction for "are not".</p>
+                        </div>
+
+                        <!-- Intermediate Example 6 -->
+                        <div class="p-4 bg-[#88B5C7]/20 rounded-lg border border-[#1269A8]">
+                            <span class="inline-block bg-[#1269A8] text-white text-xs font-bold px-2.5 py-1 rounded mb-2">INTERMEDIATE - Example 6</span>
+                            <p class="font-semibold text-slate-800">Question: Look at the family in the kitchen cooking. What are they doing?</p>
+                            <p class="text-[#1269A8] font-bold mt-2">Solution: We're cooking.</p>
+                            <p class="text-xs text-slate-500 mt-1">Explanation: Multiple people in the kitchen cooking together use the first person plural pronoun group response.</p>
+                        </div>
+
+                        <!-- Intermediate Example 7 -->
+                        <div class="p-4 bg-[#88B5C7]/20 rounded-lg border border-[#1269A8]">
+                            <span class="inline-block bg-[#1269A8] text-white text-xs font-bold px-2.5 py-1 rounded mb-2">INTERMEDIATE - Example 7</span>
+                            <p class="font-semibold text-slate-800">Question: Look at the family sitting on the sofa. Form the sentence: "What are you doing? We're ________ TV."</p>
+                            <p class="text-[#1269A8] font-bold mt-2">Solution: We're watching TV.</p>
+                            <p class="text-xs text-slate-500 mt-1">Explanation: The verb phrase for viewing a screen is "watching TV".</p>
+                        </div>
+
+                        <!-- Intermediate Example 8 -->
+                        <div class="p-4 bg-[#88B5C7]/20 rounded-lg border border-[#1269A8]">
+                            <span class="inline-block bg-[#1269A8] text-white text-xs font-bold px-2.5 py-1 rounded mb-2">INTERMEDIATE - Example 8</span>
+                            <p class="font-semibold text-slate-800">Question: Look at the bottom shelf section "CUTTING". Are there any scissors?</p>
+                            <p class="text-[#1269A8] font-bold mt-2">Solution: Yes, there are.</p>
+                            <p class="text-xs text-slate-500 mt-1">Explanation: Scissors and hole punchers are in the cutting compartment.</p>
+                        </div>
+
+                        <!-- Intermediate Example 9 -->
+                        <div class="p-4 bg-[#88B5C7]/20 rounded-lg border border-[#1269A8]">
+                            <span class="inline-block bg-[#1269A8] text-white text-xs font-bold px-2.5 py-1 rounded mb-2">INTERMEDIATE - Example 9</span>
+                            <p class="font-semibold text-slate-800">Question: Complete the question about classroom objects: "Are there ____ markers?"</p>
+                            <p class="text-[#1269A8] font-bold mt-2">Solution: Are there any markers?</p>
+                            <p class="text-xs text-slate-500 mt-1">Explanation: We use "any" in plural questions for items in a location.</p>
+                        </div>
+
+                        <!-- Intermediate Example 10 -->
+                        <div class="p-4 bg-[#88B5C7]/20 rounded-lg border border-[#1269A8]">
+                            <span class="inline-block bg-[#1269A8] text-white text-xs font-bold px-2.5 py-1 rounded mb-2">INTERMEDIATE - Example 10</span>
+                            <p class="font-semibold text-slate-800">Question: Look at children eating snacks around a table. What are they doing?</p>
+                            <p class="text-[#1269A8] font-bold mt-2">Solution: We're eating.</p>
+                            <p class="text-xs text-slate-500 mt-1">Explanation: The action of consuming food is represented by "eating".</p>
+                        </div>
+
+                        <!-- Advanced Example 11 -->
+                        <div class="p-4 bg-[#54887D]/20 rounded-lg border border-[#54887D]">
+                            <span class="inline-block bg-[#54887D] text-white text-xs font-bold px-2.5 py-1 rounded mb-2">ADVANCED - Example 11</span>
+                            <p class="font-semibold text-slate-800">Question: Combine Grammar I and II: Look at two students counting coins into a jar and asking if there are any coins left. Form both the action statement and the question.</p>
+                            <p class="text-[#1269A8] font-bold mt-2">Solution: Action: "We're counting." Question: "Are there any coins?"</p>
+                            <p class="text-xs text-slate-500 mt-1">Explanation: Integrates present progressive action with plural existence questioning.</p>
+                        </div>
+
+                        <!-- Advanced Example 12 -->
+                        <div class="p-4 bg-[#54887D]/20 rounded-lg border border-[#54887D]">
+                            <span class="inline-block bg-[#54887D] text-white text-xs font-bold px-2.5 py-1 rounded mb-2">ADVANCED - Example 12</span>
+                            <p class="font-semibold text-slate-800">Question: Correct the grammatical error in this dialogue: "What are you doing? We are read a book."</p>
+                            <p class="text-[#1269A8] font-bold mt-2">Solution: "We're reading a book." (or "We are reading a book.")</p>
+                            <p class="text-xs text-slate-500 mt-1">Explanation: The verb must take the "-ing" suffix (reading) and contraction "We're" is preferred.</p>
+                        </div>
+
+                        <!-- Advanced Example 13 -->
+                        <div class="p-4 bg-[#54887D]/20 rounded-lg border border-[#54887D]">
+                            <span class="inline-block bg-[#54887D] text-white text-xs font-bold px-2.5 py-1 rounded mb-2">ADVANCED - Example 13</span>
+                            <p class="font-semibold text-slate-800">Question: Formulate a negative short answer and justify it based on a classroom shelf lacking paintbrushes: "Are there any paintbrushes?"</p>
+                            <p class="text-[#1269A8] font-bold mt-2">Solution: "No, there aren't. Paintbrushes are not on the shelf."</p>
+                            <p class="text-xs text-slate-500 mt-1">Explanation: Combines short negative answer with full contextual explanation.</p>
+                        </div>
+
+                        <!-- Advanced Example 14 -->
+                        <div class="p-4 bg-[#54887D]/20 rounded-lg border border-[#54887D]">
+                            <span class="inline-block bg-[#54887D] text-white text-xs font-bold px-2.5 py-1 rounded mb-2">ADVANCED - Example 14</span>
+                            <p class="font-semibold text-slate-800">Question: Create a dialogue between two partners asking about markers and answering with an ongoing action.</p>
+                            <p class="text-[#1269A8] font-bold mt-2">Solution: Partner 1: "Are there any markers?" Partner 2: "Yes, there are. We're coloring!"</p>
+                            <p class="text-xs text-slate-500 mt-1">Explanation: Synthesizes both grammar structures into a coherent mini-conversation.</p>
+                        </div>
+
+                        <!-- Advanced Example 15 -->
+                        <div class="p-4 bg-[#54887D]/20 rounded-lg border border-[#54887D]">
+                            <span class="inline-block bg-[#54887D] text-white text-xs font-bold px-2.5 py-1 rounded mb-2">ADVANCED - Example 15</span>
+                            <p class="font-semibold text-slate-800">Question: Transform the statement "We are cutting paper" into a question and short answer pair regarding what they are doing.</p>
+                            <p class="text-[#1269A8] font-bold mt-2">Solution: Q: "What are you doing?" A: "We're cutting paper."</p>
+                            <p class="text-xs text-slate-500 mt-1">Explanation: Reverses inquiry and response structure in the first person plural.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= TAB 3: PRACTICE EXERCISES ================= -->
+            <section id="tab-exercises" class="tab-content hidden space-y-6">
+                <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-[#54887D]">
+                    <h2 class="text-2xl font-bold text-[#54887D] mb-4">Practice Exercises (15 Exercises: Basic, Intermediate, Advanced)</h2>
+                    <p class="text-slate-600 mb-6">Solve the exercises below. Click the button under each exercise to reveal the step-by-step solution.</p>
+
+                    <div class="space-y-6">
+                        <!-- Exercise 1 -->
+                        <div class="p-5 bg-[#F2F5E9] rounded-xl border border-[#88B5C7]">
+                            <span class="inline-block bg-[#A6B046] text-white text-xs font-bold px-2.5 py-1 rounded mb-2">BASIC - Exercise 1</span>
+                            <p class="font-semibold text-slate-800 mb-2">1. Look at the image of students reading a book together. Complete: "We're ________."</p>
+                            <button onclick="toggleSolution('sol-ex1')" class="bg-[#1269A8] text-white text-sm font-bold px-4 py-2 rounded-lg shadow hover:bg-blue-700 transition">Show Solution</button>
+                            <div id="sol-ex1" class="hidden mt-4 p-4 bg-white rounded-lg border-l-4 border-[#1269A8] text-slate-700 text-sm">
+                                <p class="font-bold text-[#1269A8]">Step-by-Step Solution:</p>
+                                <p>1. Identify the action in the picture: looking at a book and reading.</p>
+                                <p>2. Apply the verb in -ing form: <strong>reading</strong>.</p>
+                                <p>3. Full sentence: <strong>We're reading.</strong></p>
+                            </div>
+                        </div>
+
+                        <!-- Exercise 2 -->
+                        <div class="p-5 bg-[#F2F5E9] rounded-xl border border-[#88B5C7]">
+                            <span class="inline-block bg-[#A6B046] text-white text-xs font-bold px-2.5 py-1 rounded mb-2">BASIC - Exercise 2</span>
+                            <p class="font-semibold text-slate-800 mb-2">2. Complete the question: "______ there any crayons?"</p>
+                            <button onclick="toggleSolution('sol-ex2')" class="bg-[#1269A8] text-white text-sm font-bold px-4 py-2 rounded-lg shadow hover:bg-blue-700 transition">Show Solution</button>
+                            <div id="sol-ex2" class="hidden mt-4 p-4 bg-white rounded-lg border-l-4 border-[#1269A8] text-slate-700 text-sm">
+                                <p class="font-bold text-[#1269A8]">Step-by-Step Solution:</p>
+                                <p>1. Recognize the Grammar II structure for plural questions: "Are there any...?"</p>
+                                <p>2. Fill in the blank with the auxiliary verb: <strong>Are</strong>.</p>
+                                <p>3. Full sentence: <strong>Are there any crayons?</strong></p>
+                            </div>
+                        </div>
+
+                        <!-- Exercise 3 -->
+                        <div class="p-5 bg-[#F2F5E9] rounded-xl border border-[#88B5C7]">
+                            <span class="inline-block bg-[#A6B046] text-white text-xs font-bold px-2.5 py-1 rounded mb-2">BASIC - Exercise 3</span>
+                            <p class="font-semibold text-slate-800 mb-2">3. Answer the question: "Are there any erasers?" (Look at the drawing section of the shelf where erasers are present).</p>
+                            <button onclick="toggleSolution('sol-ex3')" class="bg-[#1269A8] text-white text-sm font-bold px-4 py-2 rounded-lg shadow hover:bg-blue-700 transition">Show Solution</button>
+                            <div id="sol-ex3" class="hidden mt-4 p-4 bg-white rounded-lg border-l-4 border-[#1269A8] text-slate-700 text-sm">
+                                <p class="font-bold text-[#1269A8]">Step-by-Step Solution:</p>
+                                <p>1. Check if erasers are on the shelf in the image.</p>
+                                <p>2. Since they are present, use the affirmative short answer.</p>
+                                <p>3. Answer: <strong>Yes, there are.</strong></p>
+                            </div>
+                        </div>
+
+                        <!-- Exercise 4 -->
+                        <div class="p-5 bg-[#F2F5E9] rounded-xl border border-[#88B5C7]">
+                            <span class="inline-block bg-[#A6B046] text-white text-xs font-bold px-2.5 py-1 rounded mb-2">BASIC - Exercise 4</span>
+                            <p class="font-semibold text-slate-800 mb-2">4. Complete the sentence: "We're ________ yellow paper." (using cutting)</p>
+                            <button onclick="toggleSolution('sol-ex4')" class="bg-[#1269A8] text-white text-sm font-bold px-4 py-2 rounded-lg shadow hover:bg-blue-700 transition">Show Solution</button>
+                            <div id="sol-ex4" class="hidden mt-4 p-4 bg-white rounded-lg border-l-4 border-[#1269A8] text-slate-700 text-sm">
+                                <p class="font-bold text-[#1269A8]">Step-by-Step Solution:</p>
+                                <p>1. Identify the verb associated with scissors and paper.</p>
+                                <p>2. Select <strong>cutting</strong>.</p>
+                                <p>3. Full sentence: <strong>We're cutting yellow paper.</strong></p>
+                            </div>
+                        </div>
+
+                        <!-- Exercise 5 -->
+                        <div class="p-5 bg-[#F2F5E9] rounded-xl border border-[#88B5C7]">
+                            <span class="inline-block bg-[#A6B046] text-white text-xs font-bold px-2.5 py-1 rounded mb-2">BASIC - Exercise 5</span>
+                            <p class="font-semibold text-slate-800 mb-2">5. Write the short negative answer for: "Are there any paintbrushes?"</p>
+                            <button onclick="toggleSolution('sol-ex5')" class="bg-[#1269A8] text-white text-sm font-bold px-4 py-2 rounded-lg shadow hover:bg-blue-700 transition">Show Solution</button>
+                            <div id="sol-ex5" class="hidden mt-4 p-4 bg-white rounded-lg border-l-4 border-[#1269A8] text-slate-700 text-sm">
+                                <p class="font-bold text-[#1269A8]">Step-by-Step Solution:</p>
+                                <p>1. Recall the negative short answer structure: "No, there aren't."</p>
+                                <p>2. Answer: <strong>No, there aren't.</strong></p>
+                            </div>
+                        </div>
+
+                        <!-- Exercise 6 -->
+                        <div class="p-5 bg-[#88B5C7]/20 rounded-xl border border-[#1269A8]">
+                            <span class="inline-block bg-[#1269A8] text-white text-xs font-bold px-2.5 py-1 rounded mb-2">INTERMEDIATE - Exercise 6</span>
+                            <p class="font-semibold text-slate-800 mb-2">6. Unscramble the sentence: [ reading / We're / book / a ]</p>
+                            <button onclick="toggleSolution('sol-ex6')" class="bg-[#1269A8] text-white text-sm font-bold px-4 py-2 rounded-lg shadow hover:bg-blue-700 transition">Show Solution</button>
+                            <div id="sol-ex6" class="hidden mt-4 p-4 bg-white rounded-lg border-l-4 border-[#1269A8] text-slate-700 text-sm">
+                                <p class="font-bold text-[#1269A8]">Step-by-Step Solution:</p>
+                                <p>1. Subject pronoun/contraction: We're</p>
+                                <p>2. Verb + object: reading a book</p>
+                                <p>3. Correct order: <strong>We're reading a book.</strong></p>
+                            </div>
+                        </div>
+
+                        <!-- Exercise 7 -->
+                        <div class="p-5 bg-[#88B5C7]/20 rounded-xl border border-[#1269A8]">
+                            <span class="inline-block bg-[#1269A8] text-white text-xs font-bold px-2.5 py-1 rounded mb-2">INTERMEDIATE - Exercise 7</span>
+                            <p class="font-semibold text-slate-800 mb-2">7. Look at the kitchen scene in Our World 2 (Page 8): "What are you doing? We're ________." (cooking / counting)</p>
+                            <button onclick="toggleSolution('sol-ex7')" class="bg-[#1269A8] text-white text-sm font-bold px-4 py-2 rounded-lg shadow hover:bg-blue-700 transition">Show Solution</button>
+                            <div id="sol-ex7" class="hidden mt-4 p-4 bg-white rounded-lg border-l-4 border-[#1269A8] text-slate-700 text-sm">
+                                <p class="font-bold text-[#1269A8]">Step-by-Step Solution:</p>
+                                <p>1. Identify the kitchen context with pots and stove.</p>
+                                <p>2. Select the correct verb: <strong>cooking</strong>.</p>
+                                <p>3. Full sentence: <strong>We're cooking.</strong></p>
+                            </div>
+                        </div>
+
+                        <!-- Exercise 8 -->
+                        <div class="p-5 bg-[#88B5C7]/20 rounded-xl border border-[#1269A8]">
+                            <span class="inline-block bg-[#1269A8] text-white text-xs font-bold px-2.5 py-1 rounded mb-2">INTERMEDIATE - Exercise 8</span>
+                            <p class="font-semibold text-slate-800 mb-2">8. Formulate the question for this answer: "Yes, there are. Are there any scissors?" -> Wait, write the question for: "Yes, there are. [notebooks]".</p>
+                            <button onclick="toggleSolution('sol-ex8')" class="bg-[#1269A8] text-white text-sm font-bold px-4 py-2 rounded-lg shadow hover:bg-blue-700 transition">Show Solution</button>
+                            <div id="sol-ex8" class="hidden mt-4 p-4 bg-white rounded-lg border-l-4 border-[#1269A8] text-slate-700 text-sm">
+                                <p class="font-bold text-[#1269A8]">Step-by-Step Solution:</p>
+                                <p>1. Start with "Are there any...?"</p>
+                                <p>2. Add the noun: notebooks.</p>
+                                <p>3. Question: <strong>Are there any notebooks?</strong></p>
+                            </div>
+                        </div>
+
+                        <!-- Exercise 9 -->
+                        <div class="p-5 bg-[#88B5C7]/20 rounded-xl border border-[#1269A8]">
+                            <span class="inline-block bg-[#1269A8] text-white text-xs font-bold px-2.5 py-1 rounded mb-2">INTERMEDIATE - Exercise 9</span>
+                            <p class="font-semibold text-slate-800 mb-2">9. Look at the living room image: "What are you doing? We're ________ TV."</p>
+                            <button onclick="toggleSolution('sol-ex9')" class="bg-[#1269A8] text-white text-sm font-bold px-4 py-2 rounded-lg shadow hover:bg-blue-700 transition">Show Solution</button>
+                            <div id="sol-ex9" class="hidden mt-4 p-4 bg-white rounded-lg border-l-4 border-[#1269A8] text-slate-700 text-sm">
+                                <p class="font-bold text-[#1269A8]">Step-by-Step Solution:</p>
+                                <p>1. Identify the family watching a screen with a remote control.</p>
+                                <p>2. Action verb: <strong>watching</strong>.</p>
+                                <p>3. Sentence: <strong>We're watching TV.</strong></p>
+                            </div>
+                        </div>
+
+                        <!-- Exercise 10 -->
+                        <div class="p-5 bg-[#88B5C7]/20 rounded-xl border border-[#1269A8]">
+                            <span class="inline-block bg-[#1269A8] text-white text-xs font-bold px-2.5 py-1 rounded mb-2">INTERMEDIATE - Exercise 10</span>
+                            <p class="font-semibold text-slate-800 mb-2">10. Complete: "Are there any markers? No, ________."</p>
+                            <button onclick="toggleSolution('sol-ex10')" class="bg-[#1269A8] text-white text-sm font-bold px-4 py-2 rounded-lg shadow hover:bg-blue-700 transition">Show Solution</button>
+                            <div id="sol-ex10" class="hidden mt-4 p-4 bg-white rounded-lg border-l-4 border-[#1269A8] text-slate-700 text-sm">
+                                <p class="font-bold text-[#1269A8]">Step-by-Step Solution:</p>
+                                <p>1. Use the negative short answer format for "Are there...?"</p>
+                                <p>2. Complete with: <strong>there aren't.</strong></p>
+                            </div>
+                        </div>
+
+                        <!-- Exercise 11 -->
+                        <div class="p-5 bg-[#54887D]/20 rounded-xl border border-[#54887D]">
+                            <span class="inline-block bg-[#54887D] text-white text-xs font-bold px-2.5 py-1 rounded mb-2">ADVANCED - Exercise 11</span>
+                            <p class="font-semibold text-slate-800 mb-2">11. Create a complete Q&A pair using Grammar I for children coloring.</p>
+                            <button onclick="toggleSolution('sol-ex11')" class="bg-[#1269A8] text-white text-sm font-bold px-4 py-2 rounded-lg shadow hover:bg-blue-700 transition">Show Solution</button>
+                            <div id="sol-ex11" class="hidden mt-4 p-4 bg-white rounded-lg border-l-4 border-[#1269A8] text-slate-700 text-sm">
+                                <p class="font-bold text-[#1269A8]">Step-by-Step Solution:</p>
+                                <p>1. Question: "What are you doing?"</p>
+                                <p>2. Answer: "We're coloring."</p>
+                                <p>3. Checks correct pronoun, auxiliary, and -ing verb.</p>
+                            </div>
+                        </div>
+
+                        <!-- Exercise 12 -->
+                        <div class="p-5 bg-[#54887D]/20 rounded-xl border border-[#54887D]">
+                            <span class="inline-block bg-[#54887D] text-white text-xs font-bold px-2.5 py-1 rounded mb-2">ADVANCED - Exercise 12</span>
+                            <p class="font-semibold text-slate-800 mb-2">12. Spot the error and rewrite correctly: "What are you doing? We cutting paper."</p>
+                            <button onclick="toggleSolution('sol-ex12')" class="bg-[#1269A8] text-white text-sm font-bold px-4 py-2 rounded-lg shadow hover:bg-blue-700 transition">Show Solution</button>
+                            <div id="sol-ex12" class="hidden mt-4 p-4 bg-white rounded-lg border-l-4 border-[#1269A8] text-slate-700 text-sm">
+                                <p class="font-bold text-[#1269A8]">Step-by-Step Solution:</p>
+                                <p>1. Error: Missing "are" or " 're " before cutting.</p>
+                                <p>2. Correction: <strong>"We're cutting paper."</strong> (or "We are cutting paper.")</p>
+                            </div>
+                        </div>
+
+                        <!-- Exercise 13 -->
+                        <div class="p-5 bg-[#54887D]/20 rounded-xl border border-[#54887D]">
+                            <span class="inline-block bg-[#54887D] text-white text-xs font-bold px-2.5 py-1 rounded mb-2">ADVANCED - Exercise 13</span>
+                            <p class="font-semibold text-slate-800 mb-2">13. Formulate a question asking about paintbrushes and give a negative short answer.</p>
+                            <button onclick="toggleSolution('sol-ex13')" class="bg-[#1269A8] text-white text-sm font-bold px-4 py-2 rounded-lg shadow hover:bg-blue-700 transition">Show Solution</button>
+                            <div id="sol-ex13" class="hidden mt-4 p-4 bg-white rounded-lg border-l-4 border-[#1269A8] text-slate-700 text-sm">
+                                <p class="font-bold text-[#1269A8]">Step-by-Step Solution:</p>
+                                <p>1. Question: "Are there any paintbrushes?"</p>
+                                <p>2. Short Answer: "No, there aren't."</p>
+                            </div>
+                        </div>
+
+                        <!-- Exercise 14 -->
+                        <div class="p-5 bg-[#54887D]/20 rounded-xl border border-[#54887D]">
+                            <span class="inline-block bg-[#54887D] text-white text-xs font-bold px-2.5 py-1 rounded mb-2">ADVANCED - Exercise 14</span>
+                            <p class="font-semibold text-slate-800 mb-2">14. Combine Grammar I and II into a 2-turn dialogue about counting coins.</p>
+                            <button onclick="toggleSolution('sol-ex14')" class="bg-[#1269A8] text-white text-sm font-bold px-4 py-2 rounded-lg shadow hover:bg-blue-700 transition">Show Solution</button>
+                            <div id="sol-ex14" class="hidden mt-4 p-4 bg-white rounded-lg border-l-4 border-[#1269A8] text-slate-700 text-sm">
+                                <p class="font-bold text-[#1269A8]">Step-by-Step Solution:</p>
+                                <p>1. Person A: "What are you doing?"</p>
+                                <p>2. Person B: "We're counting coins!"</p>
+                                <p>3. Person A: "Are there any coins left?"</p>
+                                <p>4. Person B: "Yes, there are."</p>
+                            </div>
+                        </div>
+
+                        <!-- Exercise 15 -->
+                        <div class="p-5 bg-[#54887D]/20 rounded-xl border border-[#54887D]">
+                            <span class="inline-block bg-[#54887D] text-white text-xs font-bold px-2.5 py-1 rounded mb-2">ADVANCED - Exercise 15</span>
+                            <p class="font-semibold text-slate-800 mb-2">15. Explain in English why we use "We're" instead of "I'm" when two students are cutting paper together.</p>
+                            <button onclick="toggleSolution('sol-ex15')" class="bg-[#1269A8] text-white text-sm font-bold px-4 py-2 rounded-lg shadow hover:bg-blue-700 transition">Show Solution</button>
+                            <div id="sol-ex15" class="hidden mt-4 p-4 bg-white rounded-lg border-l-4 border-[#1269A8] text-slate-700 text-sm">
+                                <p class="font-bold text-[#1269A8]">Step-by-Step Solution:</p>
+                                <p>1. "I'm" is singular (one person).</p>
+                                <p>2. When there are two or more people doing an action together, we use the first person plural pronoun <strong>"We're"</strong>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= TAB 4: CRITICAL REFLECTION ================= -->
+            <section id="tab-reflection" class="tab-content hidden space-y-6">
+                <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-[#1269A8]">
+                    <h2 class="text-2xl font-bold text-[#1269A8] mb-4">Critical Reflection Questions</h2>
+                    <p class="text-slate-600 mb-6">Open-ended questions for conceptual analysis and logical thinking in Second Grade.</p>
+
+                    <div class="space-y-4">
+                        <div class="p-4 bg-[#F2F5E9] rounded-lg border-l-4 border-[#1269A8]">
+                            <p class="font-bold text-[#1269A8] mb-1">Reflection 1:</p>
+                            <p class="text-slate-700">Why is it important to use <strong>-ing</strong> at the end of action verbs when we describe what we are doing right now?</p>
+                        </div>
+                        <div class="p-4 bg-[#F2F5E9] rounded-lg border-l-4 border-[#54887D]">
+                            <p class="font-bold text-[#54887D] mb-1">Reflection 2:</p>
+                            <p class="text-slate-700">When you look around your classroom at Colegio Montano, how would you ask your classmate if there are any markers or scissors on the shelf?</p>
+                        </div>
+                        <div class="p-4 bg-[#F2F5E9] rounded-lg border-l-4 border-[#A6B046]">
+                            <p class="font-bold text-[#A6B046] mb-1">Reflection 3:</p>
+                            <p class="text-slate-700">What is the difference between saying what <em>you</em> are doing alone ("I'm reading") versus what <em>we</em> are doing together ("We're reading")?</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= TAB 5: FORMATIVE QUIZ ================= -->
+            <section id="tab-evaluation" class="tab-content hidden space-y-6">
+                <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-[#F7D615]">
+                    <h2 class="text-2xl font-bold text-[#1269A8] mb-4">Formative Quiz with Hidden Solutions</h2>
+                    <p class="text-slate-600 mb-6">Test your knowledge of Unit 1 Grammar. Click the button to check your answer.</p>
+
+                    <div class="space-y-6">
+                        <!-- Quiz 1 -->
+                        <div class="p-5 bg-[#F2F5E9] rounded-xl border border-[#88B5C7]">
+                            <p class="font-semibold text-slate-800 mb-2">Quiz 1: Choose the correct form: "What are you doing? ________ reading a book." (We're / We is)</p>
+                            <button onclick="toggleSolution('sol-quiz1')" class="bg-[#1269A8] text-white text-sm font-bold px-4 py-2 rounded-lg shadow hover:bg-blue-700 transition">Show Answer</button>
+                            <div id="sol-quiz1" class="hidden mt-4 p-4 bg-white rounded-lg border-l-4 border-[#1269A8] text-slate-700 text-sm">
+                                <p class="font-bold text-[#1269A8]">Correct Answer:</p>
+                                <p><strong>We're</strong> (We're = We are. "We is" is grammatically incorrect).</p>
+                            </div>
+                        </div>
+
+                        <!-- Quiz 2 -->
+                        <div class="p-5 bg-[#F2F5E9] rounded-xl border border-[#88B5C7]">
+                            <p class="font-semibold text-slate-800 mb-2">Quiz 2: Complete the question: "________ there any notebooks on the desk?" (Is / Are)</p>
+                            <button onclick="toggleSolution('sol-quiz2')" class="bg-[#1269A8] text-white text-sm font-bold px-4 py-2 rounded-lg shadow hover:bg-blue-700 transition">Show Answer</button>
+                            <div id="sol-quiz2" class="hidden mt-4 p-4 bg-white rounded-lg border-l-4 border-[#1269A8] text-slate-700 text-sm">
+                                <p class="font-bold text-[#1269A8]">Correct Answer:</p>
+                                <p><strong>Are</strong> ("notebooks" is plural, so we use "Are there any...?").</p>
+                            </div>
+                        </div>
+
+                        <!-- Quiz 3 -->
+                        <div class="p-5 bg-[#F2F5E9] rounded-xl border border-[#88B5C7]">
+                            <p class="font-semibold text-slate-800 mb-2">Quiz 3: Choose the correct short affirmative answer: "Are there any crayons? Yes, ________." (there are / they are)</p>
+                            <button onclick="toggleSolution('sol-quiz3')" class="bg-[#1269A8] text-white text-sm font-bold px-4 py-2 rounded-lg shadow hover:bg-blue-700 transition">Show Answer</button>
+                            <div id="sol-quiz3" class="hidden mt-4 p-4 bg-white rounded-lg border-l-4 border-[#1269A8] text-slate-700 text-sm">
+                                <p class="font-bold text-[#1269A8]">Correct Answer:</p>
+                                <p><strong>there are</strong> (Short answers for "Are there...?" use "there are" or "there aren't").</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-[#1269A8] text-white text-center py-3 text-xs sm:text-sm font-medium border-t-4 border-[#F7D615]">
+            Colegio Montano • Excellence in Bilingual Education • Our World 2 Unit 1 Study Guide
+        </footer>
+
+    </div>
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+        // Tab Switching Logic
+        function switchTab(tabId) {
+            // Hide all tab contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.add('hidden'));
+
+            // Remove active styles from all tab buttons
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-white', 'text-[#1269A8]', 'shadow');
+                btn.classList.add('bg-[#88B5C7]', 'text-white');
+            });
+
+            // Show selected tab content
+            document.getElementById('tab-' + tabId).classList.remove('hidden');
+
+            // Style active button
+            const activeBtn = document.querySelector(`[data-tab="${tabId}"]`);
+            activeBtn.classList.remove('bg-[#88B5C7]', 'text-white');
+            activeBtn.classList.add('bg-white', 'text-[#1269A8]', 'shadow');
+        }
+
+        // Toggle Solution Visibility
+        function toggleSolution(solId) {
+            const solDiv = document.getElementById(solId);
+            if (solDiv.classList.contains('hidden')) {
+                solDiv.classList.remove('hidden');
+                event.target.textContent = 'Hide Solution';
+                event.target.classList.replace('bg-[#1269A8]', 'bg-[#54887D]');
+            } else {
+                solDiv.classList.add('hidden');
+                event.target.textContent = 'Show Solution';
+                event.target.classList.replace('bg-[#54887D]', 'bg-[#1269A8]');
+            }
+        }
+
+        // Fullscreen Toggle using Fullscreen API
+        function toggleFullscreen() {
+            const container = document.getElementById('whiteboard-container');
+            if (!document.fullscreenElement) {
+                if (container.requestFullscreen) {
+                    container.requestFullscreen();
+                } else if (container.webkitRequestFullscreen) {
+                    container.webkitRequestFullscreen();
+                } else if (container.msRequestFullscreen) {
+                    container.msRequestFullscreen();
+                }
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+            }
+        }
+    </script>
+</body>
+</html>
